@@ -29,7 +29,6 @@
 
 \newcounter{GalleryCounter}
 
-\newenvironment{gallery}{\setcounter{GalleryCounter}{0}}{}
 
 \newcommand{\startgallery}{\setcounter{GalleryCounter}{0}}
 
@@ -52,14 +51,19 @@
 
 \newcounter{forLoopCounter}
 
+\newcommand{\ImageSource}{Images/}
+
 \newcommand{\makegallery}{
 	\begin{center}
 		\forloop{forLoopCounter}{0}{\value{forLoopCounter}<\value{GalleryCounter}}
 		{
-			\begin{tabular}{l}
-				\getproperty{GalleryImageFile}{\arabic{forLoopCounter}}\\
+			\begin{tabular}{c}
+				\includegraphics[width=2cm]{\ImageSource\getproperty{GalleryImageFile}{\arabic{forLoopCounter}}.jpg}\\
 				\getproperty{GalleryImageCaption}{\arabic{forLoopCounter}}\\
 			\end{tabular}
 		}
 	\end{center}
 }
+
+\newenvironment{gallery}{\startgallery}{\makegallery}
+
