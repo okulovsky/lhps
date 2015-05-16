@@ -1,5 +1,6 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage{lphs}
+\usepackage{graphicx}
 
 
 \begin{document}
@@ -63,38 +64,52 @@
 
 \end{frame}
 
-\begin{frame}\frametitle{Gallery environment}
+\begin{frame}\frametitle{ImageSource etc}
 
-\begin{gallery}
-\end{gallery}	
-\AssertAreEqual{GalleryCounter after gallery env}{0}{\arabic{GalleryCounter}}
+\AssertAreEqual{Initial ImageSource}{\ImageSource}{Images/}
+\AssertAreEqual{Initial ImageExtension}{\ImageExtension}{jpg}
 
-\setcounter{GalleryCounter}{0}
-\begin{gallery}
-\end{gallery}	
-\AssertAreEqual{gallery env erases GalleryCounter}{0}{\arabic{GalleryCounter}}
+\SetupImages{Test/}{Test}
+\AssertAreEqual{Setted ImageSource}{\ImageSource}{Test/}
+\AssertAreEqual{Setted ImageExtension}{\ImageExtension}{Test}
+\AssertAreEqual{ImagePath}{Test/Test.Test}{\ImagePath{Test}}
 
+\SetupImages{Images/}{jpg}
+\setproperty{Image}{Path}{\ImagePath{Rubber}}
 
-\begin{gallery}
-	\image{S}{F}
-\end{gallery}	
-\AssertAreEqual{image cmd sets file name}{S}{\getproperty{GalleryImageFile}{0}}
-\AssertAreEqual{image cmd sets caption}{F}{\getproperty{GalleryImageCaption}{0}}
+%\includegraphics[width=1cm]{\ImagePath{Rubber}}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}\frametitle{Persons}
+	
+\startperson
+\person{Q}{W}{R}
+\motto{Y}
 
-\startgallery	
-\image{Q}{R}
-\image{W}{Y}
-\makegallery
+\AssertAreEqual{Person's file}{Q}{\getproperty{Person}{File}}
+\AssertAreEqual{Person's name}{W}{\getproperty{Person}{Name}}
+\AssertAreEqual{Person's years}{R}{\getproperty{Person}{Years}}
+\AssertAreEqual{Person's motto}{Y}{\getproperty{Person}{Motto}}
 
-\begin{gallery}
-\image{Q}{R}
-\image{W}{Y}
-\end{gallery}
+\end{frame}
 
+
+\begin{frame}\frametitle{Reasons}
+	
+	
+\startreason
+\from{Q}
+\from{W}
+\conc{R}
+
+\AssertAreEqual{Proposition's count}{2}{\arabic{ReasonCounter}}
+\AssertAreEqual{Proposition 1}{Q}{\getproperty{Reason}{0}}
+\AssertAreEqual{Proposition 2}{W}{\getproperty{Reason}{1}}
+\AssertAreEqual{Conclusion}{R}{\getproperty{Reason}{Conclusion}}
+
+\makereason
+	
 	
 \end{frame}
 

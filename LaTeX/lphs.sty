@@ -1,0 +1,152 @@
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{amssymb}
+\usepackage{environ}
+
+
+% UNIT TESTS 
+
+\newcommand{\AssertAreEqual}[3]{
+	\ifthenelse{\equal{#2}{#3}}
+{#1: SUCCESS\par}
+{#1: FAILURE, expected '#2', but was '#3'\par}
+}
+
+\newcommand{\AssertAreNotEqual}[3]{
+	\ifthenelse{\equal{#2}{#3}}
+	{#1: FAILURE, expected non '#2', but was '#3'\par}
+	{#1: SUCCESS\par}
+}
+
+
+
+% PROPERTIES
+
+\makeatletter
+\def\ece#1#2{\expandafter#1\csname#2\endcsname}%
+\def\setproperty#1#2#3{\ece\protected@edef{#1@p#2}{#3}}%
+\def\setpropertyglobal#1#2#3{\ece\protected@xdef{#1@p#2}{#3}}%
+\def\getproperty#1#2{%
+	\expandafter\ifx\csname#1@p#2\endcsname\relax
+	\else \csname#1@p#2\endcsname
+	\fi
+}
+\makeatother
+
+
+\newcommand{\TestSettingCommand}
+{
+	\setproperty{TestSettingsCommand}{Data}{Test}
+}
+
+\newcommand{\TestSettingCommandWithArgument}[1]
+{
+	\setproperty{TestSettingsCommandWithArgument}{Data}{#1}	
+}
+
+
+% IMAGES
+
+
+\newcommand{\ImageSource}{Images/}
+\newcommand{\ImageExtension}{jpg}
+\newcommand{\SetupImages}[2]{\renewcommand{\ImageSource}{#1}\renewcommand{\ImageExtension}{#2}}
+\newcommand{\ImagePath}[1]{\ImageSource#1.\ImageExtension}
+
+
+% GALLERY
+
+\newcounter{GalleryCounter}
+
+\newcommand{\startgallery}{\setcounter{GalleryCounter}{0}}
+
+\newcommand{\image}[2]
+{
+	\setproperty{GalleryImageFile}{\arabic{GalleryCounter}}{#1}
+	\setproperty{GalleryImageCaption}{\arabic{GalleryCounter}}{#2}
+	\stepcounter{GalleryCounter}
+}
+
+\newcounter{forLoopCounter}
+
+\newcommand{\makegallery}{
+	\begin{center}
+		\forloop{forLoopCounter}{0}{\value{forLoopCounter}<\value{GalleryCounter}}
+		{
+			\begin{tabular}{c}
+				\includegraphics[width=2cm]{\ImagePath{\getproperty{GalleryImageFile}{\arabic{forLoopCounter}}}}\\
+				\getproperty{GalleryImageCaption}{\arabic{forLoopCounter}}\\
+			\end{tabular}
+		}
+	\end{center}
+}
+
+\newenvironment{GalleryFrame}{\begin{frame}\startgallery}{\makegallery\end{frame}}
+
+% SIMPLE FRAMES 
+
+\newcommand{\PictureFrame}[2]{
+\begin{frame}
+\begin{center}
+\includegraphics[width=10cm,height=8cm,keepaspectratio]{\ImagePath{#1}}
+
+#2
+\end{center}
+\end{frame}	
+}
+
+
+\newcommand{\CitationFrame}[2]{
+	\begin{frame}
+		\begin{tabular}{|p{10cm}|}
+			\hline 
+			#1 \\
+			\hline
+		\end{tabular}
+		\begin{flushright}
+			#2
+		\end{flushright}
+	\end{frame}
+}
+
+% PERSONS
+
+
+\NewEnviron{Person}[3]
+{
+\begin{frame}
+\begin{tabular}{p{4cm}p{0.5cm}p{5cm}}
+\begin{center}
+\includegraphics[width=\linewidth,height=10cm,keepaspectratio]{\ImagePath{#1}}
+
+#2
+
+(#3)
+\end{center} && \BODY 
+\end{tabular}
+\end{frame}
+}
+
+% REASONS
+
+\newcounter{ReasonCounter}
+\newcommand{\startreason}{\setcounter{ReasonCounter}{0}\setproperty{Reason}{Conclusion}{}}
+\newcommand{\from}[1]{\setproperty{Reason}{\arabic{ReasonCounter}}{#1}\stepcounter{ReasonCounter}}
+\newcommand{\conc}[1]{\setproperty{Reason}{Conclusion}{#1}}
+
+\newcommand{\makereason}{
+\begin{tabular}{l l}
+	\addtocounter{ReasonCounter}{-1}
+	\forloop{forLoopCounter}{0}{\value{forLoopCounter}<\value{ReasonCounter}}
+	{
+		& \getproperty{Reason}{\arabic{forLoopCounter}} \\ 
+	} 
+	& \getproperty{Reason}{\arabic{ReasonCounter}} \\ \hline
+	$\therefore$ & \getproperty{Reason}{Conclusion} \\
+\end{tabular}	
+}
+
+\newenvironment{Reason}{\startreason}{\makereason}

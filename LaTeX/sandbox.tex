@@ -1,0 +1,29 @@
+\documentclass{beamer}
+\usepackage{lphs}
+\usepackage{environ}
+
+\NewEnviron{Test}
+{
+	\ifx&\BODY&
+	B
+	\else 
+	A \BODY
+	\fi
+}
+
+\begin{document}
+	
+	
+\begin{frame}
+
+
+
+\setproperty{A}{B}{}
+
+
+
+\end{frame}
+	
+
+
+\end{document}
