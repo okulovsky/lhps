@@ -88,28 +88,24 @@
 
 % SIMPLE FRAMES 
 
-\newcommand{\PictureFrame}[2]{
-\begin{frame}
+\newcommand{\PictureFrame}[3]{
+\begin{frame}\frametitle{#2}
 \begin{center}
-\includegraphics[width=10cm,height=8cm,keepaspectratio]{\ImagePath{#1}}
+\includegraphics[width=10cm,height=6.5cm,keepaspectratio]{\ImagePath{#1}}
 
-#2
+#3
 \end{center}
 \end{frame}	
 }
 
 
-\newcommand{\CitationFrame}[2]{
-	\begin{frame}
-		\begin{tabular}{|p{10cm}|}
-			\hline 
-			#1 \\
-			\hline
-		\end{tabular}
-		\begin{flushright}
-			#2
-		\end{flushright}
-	\end{frame}
+\newcommand{\Citation}[2]{
+\begin{flushleft}
+#1 
+\end{flushleft}
+\begin{flushright}
+{\it #2}
+\end{flushright}
 }
 
 % PERSONS
@@ -117,16 +113,21 @@
 
 \NewEnviron{Person}[3]
 {
-\begin{frame}
-\begin{tabular}{p{4cm}p{0.5cm}p{5cm}}
+\begin{frame}\frametitle{#2}
+\begin{columns}
+\column{0.4\textwidth}
 \begin{center}
-\includegraphics[width=\linewidth,height=10cm,keepaspectratio]{\ImagePath{#1}}
+\includegraphics[width=\linewidth,height=5cm,keepaspectratio]{\ImagePath{#1}}
 
 #2
 
 (#3)
-\end{center} && \BODY 
-\end{tabular}
+\end{center}
+\column{0.6\textwidth}
+
+\BODY 
+
+\end{columns}
 \end{frame}
 }
 
