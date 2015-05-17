@@ -1,0 +1,28 @@
+\begin{columns}
+\column{0.4\textwidth}
+\begin{Reason}
+	\from{Все люди смертны}
+	\from{Сократ -- человек}
+	\conc{Сократ -- смертен}
+\end{Reason}
+\column{0.6\textwidth}
+\begin{tikzpicture}[x=1.3cm,y=-1.3cm]
+\uncover<2->{
+	\draw \firstcircle node[left] {Люди};
+	\draw \secondcircle node[right] {Смертны};
+}
+\uncover<3->{
+	\begin{scope}[even odd rule]% first circle without the second
+	\clip \secondcircle (-3,-3) rectangle (3,1.5);
+	\fill[gray] \firstcircle;
+	\end{scope}}
+\uncover<4->{
+	\node at (0,0) {Сократ};
+}
+\uncover<2->{
+	\draw \firstcircle node[left] {Люди};
+	\draw \secondcircle node[right] {Смертны};
+}
+
+\end{tikzpicture}
+\end{columns}
