@@ -1,0 +1,94 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{framed}
+\usepackage{lphs}
+
+\SetupImages{L2-Images/}{jpg}
+\begin{document}
+
+\section{Индукция}
+
+\begin{Person}{Bacon}{Фрэнсис Бэкон}{1561--1626}
+\Citation{
+Эмпирики,  подобно  муравью, только  собирают  и  довольствуются  собранным.
+Рационалисты,  подобно  паукам,  производят ткань  из самих  себя. Пчела  же
+избирает средний способ: она извлекает материал из садовых и полевых цветов,
+но располагает и изменяет  его  по своему умению.  Не отличается от этого  и
+подлинное дело философии.
+}{
+Новый Органон, 1620 г.
+}
+\end{Person}
+
+\section{Простое обобщение}
+
+\begin{frame}
+\begin{Reason}
+	\from{Все наблюдаемые на текущий момент вороны черные}
+	\conc{Все вороны черные}
+\end{Reason}
+\end{frame}
+
+\begin{frame}
+\begin{Reason}
+\from{Все наблюдаемые на текущий момент $X$ есть $A$}
+\conc{Все $X$ есть $A$}
+\end{Reason}
+\end{frame}
+
+\begin{frame}
+\begin{Reason}
+\from[1-]{Все наблюдаемые на текущий момент породы дерева плавают}
+\conc[2]{Все породы дерева плавают}
+\conc[3]{{\it Почти} все породы дерева плавают}
+\end{Reason}
+\end{frame}
+
+
+\section{Ошибки, связанные с обобщением}
+
+\begin{frame}
+Отвержение индукции
+\end{frame}
+
+\begin{frame}
+Misleading vivendess
+\end{frame}
+
+\begin{frame}
+Hasty generalization
+\end{frame}
+
+\PictureFrame{LiterallyDigest}{Президентские выборы в США 1936 года}{Выпуск Literally Digest с результатами опроса}
+
+\begin{frame}
+Cherry picking
+\end{frame}
+
+\begin{frame}
+\begin{Reason}
+\say[+-]{Джон}{Курение вредит здоровью. Многочисленные исследования показывают, что...}
+\say[+-]{Джейн}{Какой вздор! Уинстон Черчилль курил как паровоз, но отметил 90-летие, и до самой смерти был здоров и полон сил! }
+\end{Reason}
+\end{frame}
+
+\section{Статистическое обобщение}
+
+\begin{frame}
+Схема рассуждения с процентами
+\end{frame}
+
+\begin{frame}
+Схема рассуждения с вероятностями
+\end{frame}
+
+\section{Ошибки статистического обобщения}
+
+\begin{frame}
+Пример с поездами
+\end{frame}
+
+\begin{frame}
+Пример байесовской хитрости
+\end{frame}
+
+\end{document}

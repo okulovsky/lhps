@@ -99,6 +99,14 @@
 }
 
 
+\newcommand{\EmptyPictureFrame}[1]{
+\begin{frame}
+\begin{center}
+\includegraphics[width=10cm,height=6.5cm,keepaspectratio]{\ImagePath{#1}}
+\end{center}
+\end{frame}	
+}
+
 \newcommand{\Citation}[2]{
 \begin{flushleft}
 #1 
@@ -132,22 +140,11 @@
 }
 
 % REASONS
-
-\newcounter{ReasonCounter}
-\newcommand{\startreason}{\setcounter{ReasonCounter}{0}\setproperty{Reason}{Conclusion}{}}
-\newcommand{\from}[1]{\setproperty{Reason}{\arabic{ReasonCounter}}{#1}\stepcounter{ReasonCounter}}
-\newcommand{\conc}[1]{\setproperty{Reason}{Conclusion}{#1}}
-
-\newcommand{\makereason}{
-\begin{tabular}{l p{\linewidth}}
-	\addtocounter{ReasonCounter}{-1}
-	\forloop{forLoopCounter}{0}{\value{forLoopCounter}<\value{ReasonCounter}}
-	{
-		& \getproperty{Reason}{\arabic{forLoopCounter}} \\ 
-	} 
-	& \getproperty{Reason}{\arabic{ReasonCounter}} \\ \hline
-	$\therefore$ & \getproperty{Reason}{Conclusion} \\
-\end{tabular}	
-}
-
-\newenvironment{Reason}{\startreason}{\makereason}
+\newcommand{\ReasonWidth}{7cm}
+\newenvironment{Reason}{\begin{center}}{\end{center}}
+\newcommand{\concbase}[1]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} \hline $\therefore$ & #1 \end{tabular}\par}
+\newcommand{\frombase}[2]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} #1 & #2 \end{tabular}\par}
+\newcommand{\conc}[2][1-]{\only<#1>{\concbase{#2}}}
+\newcommand{\from}[2][1-]{\only<#1>{\frombase{}{#2}}}
+\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} #2: & --- &#3 \end{tabular}\par}}
+	
