@@ -34,10 +34,7 @@ namespace ImageStretcher
             return result;
         }
 
-        static Bitmap StretchBitmap(Bitmap bmp, double aspectRatio)
-        {
-
-        }
+ 
 
 
         static void Main(string[] args)
