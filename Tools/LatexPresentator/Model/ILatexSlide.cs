@@ -9,8 +9,10 @@ namespace LatexPresentator.Model
 {
     public interface ISlideModel
     {
-        Control GetControl();
-        bool GoToNextState();
-        bool GoToPreviousState();
+        Control InitializeAndGetControl();
+
+        bool NextState();
+
+        bool PreviousState();
     }
 }

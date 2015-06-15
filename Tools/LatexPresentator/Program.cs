@@ -64,7 +64,7 @@ namespace LatexPresentator
                 Height = 576
             };
 
-            wnd.Content = model.GetControl();
+            wnd.Content = model.InitializeAndGetControl();
             new Application().Run(wnd);
             
         }
