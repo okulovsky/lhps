@@ -47,22 +47,42 @@
 \section{Ошибки, связанные с обобщением}
 
 \begin{frame}
-Отвержение индукции
+\begin{Reason}
+\from[1-]{В Великобритании отказались от абсолютной монархии, и добились научно-технического прогресса}
+\from[2-]{Во Франции свергли абсолютную монархию, и добились научно-технического прогресса}
+\from[3-]{В США никогда не было абсолютной монархии и добились научно-технического прогресса}
+\conc[4-]{Научно-технический прогресс возможен там, где нет абсолютной монархии}
+\end{Reason}
+\uncover<5->{\begin{center}Да нет же, это просто совпадение!\end{center}}
 \end{frame}
 
 \begin{frame}
-Misleading vivendess
+\begin{Reason}
+\say[+-]{Джон}{Я собираюсь купить мобильный телефон. Думаю, остановлюсь на чем-нибудь фирмы Lark...}
+\say[+-]{Джейн}{Только не Lark! Боб купил такой, а телефон потерял несколько SMS. В результате Боб пропустил собеседование, не смог устроится в престижную фирму и теперь вынужден продавать мороженое с тележки!}
+\say[+-]{Джон}{Оу... Да, наверное, Lark --- не лучший выбор...}
+\end{Reason}
 \end{frame}
 
 \begin{frame}
-Hasty generalization
+\begin{Reason}
+\from[1]{Философия -- чисто немецкое занятие}
+\from[2-]{Кант, Маркс, Гегель, Фейербах -- все они немцы}
+\conc[3-]{Философия -- чисто немецкое занятие}
+\end{Reason}
+\end{frame}
+
+
+\begin{frame}
+\begin{Reason}
+\from[1-]{В этом году зима в Екатеринбурге была холодной}
+\from[2-]{В прошлом году зима в Екатеринбурге была холодной}
+\conc[3-]{Началось глобальное похолодание}
+\end{Reason}
 \end{frame}
 
 \PictureFrame{LiterallyDigest}{Президентские выборы в США 1936 года}{Выпуск Literally Digest с результатами опроса}
 
-\begin{frame}
-Cherry picking
-\end{frame}
 
 \begin{frame}
 \begin{Reason}
@@ -71,24 +91,82 @@ Cherry picking
 \end{Reason}
 \end{frame}
 
-\section{Статистическое обобщение}
-
-\begin{frame}
-Схема рассуждения с процентами
+\begin{frame}\frametitle{Статистическое обобщение}
+\begin{Reason}
+\from[1-]{N\% от всех X в выборке обладают свойством Y}
+\conc[2-]{N\% всех X обладают свойством Y}
+\conc[3]{Пусть Z есть X. Тогда с вероятностью N\% он обладает свойством Y}
+\end{Reason}
 \end{frame}
 
 \begin{frame}
-Схема рассуждения с вероятностями
+\uncover<+->{Джон заканчивает работать между 18-00 и 19-00 в абсолютно случайный момент. Он спускается в метро и садится в первый подошедший поезд. При этом поезда одного направлении везут его к родителям, а поезда другого направления -- к невесте. Мать Джона жалуется, что сын редко у них бывает. Права ли мать?}
+
+\uncover<+->{
+\begin{center}
+\begin{tabular}{l l l l l l l}
+К невесте & 18-00 & 18-10 & 18-20 & 18-30 & 18-40 & 18-50 \\
+К родителям & 18-09 & 18-19 & 18-29 & 18-39 & 18-49 & 18-59\\
+\end{tabular}
+\end{center}}
+
+\uncover<+->{
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=0.5cm]
+\foreach \x in {0,1,2,3,4,5}
+{
+	\draw (\x,0) rectangle(\x+1,1);
+	\draw[fill=black] (\x+0.8,0) rectangle(\x+1,1);
+}
+\end{tikzpicture}
+\end{center}
+}
+
 \end{frame}
 
-\section{Ошибки статистического обобщения}
-
+\newcommand{\rad}{0.3}
 \begin{frame}
-Пример с поездами
+\begin{center}
+\begin{tikzpicture}[y=-1cm]
+\uncover<+->{\draw (0,0) circle(\rad);
+\draw[fill=black] (1,0) circle(\rad);
+\draw (2,0) circle(\rad);
+\draw (3,0) circle(\rad);
+\draw[fill=black] (4,0) circle(\rad);
+\draw[fill=black] (5,0) circle(\rad);
+\draw (6,0) circle(\rad);
+
+\draw (0,1) circle(\rad);
+\draw (1,1) circle(\rad);
+\draw (2,1) circle(\rad);
+\draw[fill=black] (3,1) circle(\rad);
+\draw (4,1) circle(\rad);
+\draw (5,1) circle(\rad);
+\draw (6,1) circle(\rad);}
+
+
+\draw (0,2.5) circle(\rad);
+\draw (1,2.5) circle(\rad);
+\draw (2,2.5) circle(\rad);
+\draw (3,2.5) circle(\rad);
+\draw (4,2.5) circle(\rad);
+\draw (5,2.5) circle(\rad);
+\draw (6,2.5) circle(\rad);
+
+\end{tikzpicture}
+\end{center}
+
+$$
+S_1=6\cdot \frac{2}{3} = 4
+$$
+
+$$
+S_2 = 6\cdot \left( \frac{2}{3}\cdot\frac{2}{3} + \frac{1}{3}\cdot\frac{1}{3} - \frac{2}{3}\cdot\frac{2}{3}\cdot\frac{1}{3}\cdot\frac{1}{3}\right)=6 \cdot \frac{41}{81} \approx 3.03 < 4
+$$
 \end{frame}
 
 \begin{frame}
-Пример байесовской хитрости
+Байесовский фокус
 \end{frame}
 
 \end{document}
