@@ -39,27 +39,27 @@
 
 \begin{frame}\frametitle{Правила вывода}
 \begin{center}
-\begin{minipage}{0.5\textwidth}
+
 \begin{Reason}
 	\from{Если идет дождь, земля мокрая}
 	\from{Сейчас идет дождь}
 	\conc{Сейчас земля мокрая}
-\end{Reason}\\[1cm]
+\end{Reason}
+
 
 
 \begin{Reason}
 	\from{Если идет дождь, земля мокрая}
 	\from{Земля не мокрая}
 	\conc{Дождь не идет}
-\end{Reason}\\[1cm]
+\end{Reason}
 
-	
 \begin{Reason}
 	\from{Если идет дождь, земля мокрая}
 	\from{Дождь не идет}
 	\conc{Земля не мокрая}
 \end{Reason}
-\end{minipage}
+
 \end{center}
 \end{frame}
 
@@ -70,9 +70,9 @@
 
 
 \column{0.5\textwidth}
-Если в первой комнате тигр, то утверждение I ложно. Тогда во второй тоже тигр. Тогда утверждение II истинно. Приходим к противоречию.
+\uncover<2->{Если в первой комнате тигр, то утверждение I ложно.}\uncover<3->{ Тогда во второй тоже тигр. Тогда утверждение II истинно.}\uncover<4->{ Приходим к противоречию.}
 
-Если в первой комнате принцессе, то утверждение I истинно. Тогда во второй комнате тигр. Тогда утверждение II истинно. Противоречий нет.
+\uncover<5->{Если в первой комнате принцессе, то утверждение I истинно. Тогда во второй комнате тигр. Тогда утверждение II истинно. Противоречий нет.}
 
 \end{columns}
 \end{frame}
@@ -100,9 +100,9 @@ $$
 $$ $$
 \uncover<12->{\neg P_1\rightarrow}\uncover<13->{(P_1\wedge P_2)\vee (\neg P_1 \wedge \neg P_2)}
 $$ $$
-\uncover<14->{\neg P_2\rightarrow}\uncover<15->{P_1 \wedge \neg P_2}
+\uncover<14->{P_2\rightarrow}\uncover<15->{\neg P_1 \vee P_2}
 $$ $$
-\uncover<16->{P_2\rightarrow}\uncover<17->{\neg P_1 \vee P_2)}
+\uncover<16->{\neg P_2\rightarrow}\uncover<17->{P_1 \wedge \neg P_2}
 $$ 
 
 \end{columns}
@@ -172,13 +172,13 @@ $$
 
 $$
 \begin{array}{c c c c c}
- \uncover<2-> {P_1 & 0 & 0 & 1 & 1 \\
-			  P_2 & 0 & 1 & 0 & 1 \\ \hline\hline
-}\uncover<3-> {\neg P_1 & 1 & 1 & 0 & 0 \\
-}\uncover<4-> {\neg P_2 & 1 & 0 & 1 & 0\\
-}\uncover<5-> {P_1 \wedge P_2 & 0 & 0 & 0 & 1 \\
-}\uncover<6-> {P_1 \vee  P_2 & 0 & 1 & 1 & 1 \\
-}\uncover<7-> {P_1 \rightarrow P_2 & 1 & 1 & 0 & 1 \\
+ \uncover<2-> {A & 0 & 0 & 1 & 1 \\
+			  B & 0 & 1 & 0 & 1 \\ \hline\hline
+}\uncover<3-> {\neg A & 1 & 1 & 0 & 0 \\
+}\uncover<4-> {\neg B & 1 & 0 & 1 & 0\\
+}\uncover<5-> {A \wedge B & 0 & 0 & 0 & 1 \\
+}\uncover<6-> {A \vee  B & 0 & 1 & 1 & 1 \\
+}\uncover<7-> {A \rightarrow B & 1 & 1 & 0 & 1 \\
 }
 \end{array}
 $$
