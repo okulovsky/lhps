@@ -90,31 +90,49 @@
 
 \begin{frame}
 \begin{center}
-\begin{tikzpicture}[x=4cm,y=-2cm]
+\begin{small}
+\begin{tikzpicture}[x=3cm,y=-1.5cm]
 \node (n0) at (0,0) {Нельзя публично ковырять в носу};
 
 \uncover<2->{
 \node (n1) at (-1,1) {можно/нельзя};
-\node (n2) at (0,1) {публично/непублично};
+\node[align=center] (n2) at (0,2) {публично/\\непублично};
 \node[align=center] (n3) at (1,1) {ковырять в носу/\\не ковырять в носу};
 \draw (n0) -- (n1);
 \draw (n0) -- (n2);
 \draw (n0) -- (n3);
 }
 \uncover<3->{
-\node[align=center] (n31) at (0.5,2) {нарушать/не нарушать\\ телесные границы};
-\node (n32) at (1.5,2) {нос/не нос};
+\node[align=center] (n31) at (1,2) {нарушать/не нарушать\\ телесные границы};
+\node (n32) at (2,2) {нос/не нос};
 \draw (n3) -- (n31);
 \draw (n3) -- (n32);
 }
 \uncover<4->{
-\node[align=center] (n11) at (-0.5,2) {доминирование/\\унижение};
-\node[align=center] (n12) at (-1.5,2) {разрешение/\\запрещение};
+\node[align=center] (n11) at (-2,2) {доминирование/\\унижение};
+\node[align=center] (n12) at (-1,2) {разрешение/\\запрещение};
 \draw (n1) -- (n11);
 \draw (n1) -- (n12);
 }
+\uncover<5->{
+\node (n21) at (-2,3) {охранник};
+}
+\uncover<6->{
+\node (n21) at (-1,3) {запрещальщик};
+}
+\uncover<7->{
+\node (n21) at (0,3) {стыдливый};
+}
+\uncover<8->{
+\node (n21) at (1,3) {снежная королева};
+}
+\uncover<9->{
+\node (n21) at (2,3) {цензор};
+}
 \end{tikzpicture}
+\end{small}
 \end{center}
+
 \end{frame}
 
 \begin{frame}

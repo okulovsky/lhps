@@ -1,0 +1,85 @@
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{amssymb}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{geometry}
+
+\usetheme{lhps}
+
+
+\newcommand{\ImageSource}{Images/}
+\newcommand{\ImageExtension}{jpg}
+\newcommand{\ImagePath}[1]{\ImageSource#1.\ImageExtension}
+
+
+% GALLERY
+
+% SIMPLE FRAMES 
+
+\newcommand{\PictureFrame}[3]{
+\begin{frame}\frametitle{#2}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=6cm]{\ImageSource{#1}}};
+\end{tikzpicture}
+#3
+\end{center}
+\end{frame}	
+}
+
+\newenvironment{GalleryFrame}{}{}
+
+\newcommand{\image}[2]{\PictureFrame{#1}{#2}{}}
+
+
+\newcommand{\EmptyPictureFrame}[1]{
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{\ImagePath{#1}}
+};
+\end{tikzpicture}
+\end{frame}
+}
+
+\NewEnviron{Person}[3]
+{
+\begin{frame}\frametitle{#2 (#3)}
+\begin{columns}
+\column{4.2cm}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[width=4cm]{\ImagePath{#1}}};
+\end{tikzpicture}
+\end{center}
+\column{6cm}
+
+\BODY
+
+\end{columns}
+\end{frame}
+}
+
+% REASONS
+\newcommand{\ReasonWidth}{7cm}
+\newenvironment{Reason}{\begin{center}}{\end{center}}
+\newcommand{\concbase}[1]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} \hline $\therefore$ & #1 \end{tabular}\par}
+\newcommand{\frombase}[2]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} #1 & #2 \end{tabular}\par}
+\newcommand{\conc}[2][1-]{\only<#1>{\concbase{#2}}}
+\newcommand{\from}[2][1-]{\only<#1>{\frombase{}{#2}}}
+\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} #2: & --- &#3 \end{tabular}\par}}
+	
+%CITATIONS
+
+\newcommand{\Citation}[2]{
+\begin{flushleft}
+#1 
+\end{flushleft}
+\begin{flushright}
+{\it #2}
+\end{flushright}
+}

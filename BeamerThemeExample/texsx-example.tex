@@ -1,38 +1,50 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\title{There Is No Largest Prime Number}
-\date[ISPN ’80]{27th International Symposium of Prime Numbers}
-\author[Euclid]{Euclid of Alexandria \texttt{euclid@alexandria.edu}}
-
+\usepackage[russian]{babel}
+\usepackage{xcolor}
+\usepackage{geometry}
 \usetheme{texsx}
 
+
+
+
+
+
+
 \begin{document}
-	
-\begin{frame}
-	\titlepage
+
+
+
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{elysium.jpg}
+};
+\end{tikzpicture}
+ \end{frame}
+
+\begin{frame}\frametitle{Fanera (1715)}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=7cm]{pilewood.jpg}};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Anaxagor}
+\begin{columns}
+\column{4.2cm}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[width=4cm]{anaxagor.jpg}};
+\end{tikzpicture}
+(годы)
+\end{center}
+\column{6cm}
+Не я потерял Афины - Афины потеряли меня
+\end{columns}
 \end{frame}
 
 
-\begin{frame} 
-	\frametitle{There Is No Largest Prime Number} 
-	\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
-	\begin{theorem}
-		There is no largest prime number. \end{theorem} 
-	\begin{enumerate} 
-		\item<1-| alert@1> Suppose $p$ were the largest prime number. 
-		\item<2-> Let $q$ be the product of the first $p$ numbers. 
-		\item<3-> Then $q+1$ is not divisible by any of them. 
-		\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
-		number not in the first $p$ numbers.
-	\end{enumerate}
-\end{frame}
-
-\begin{frame}{A longer title}
-	\begin{itemize}
-		\item one
-		\item two
-	\end{itemize}
-\end{frame}
 
 \end{document}

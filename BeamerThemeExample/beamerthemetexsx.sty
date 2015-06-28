@@ -3,14 +3,37 @@
 % Requirement
 \RequirePackage{tikz}
 
-% Settings
-\useinnertheme{texsx}
-\useoutertheme{texsx}
-\usecolortheme{texsx}
+
+\definecolor{headline}{HTML}{FF9627}
+\definecolor{headlinetext}{HTML}{FFFFFF}
+\definecolor{background}{HTML}{B0D0F0}
+\definecolor{accent}{HTML}{FF9627}
+
+% Frame title
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox[fill=headline](0,-0.05) rectangle(\the\paperwidth,1.2);
+  \node[headlinetext,anchor=east] at (\the\paperwidth,0.6) {\bf \insertframetitle};
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\defbeamertemplate*{footline}{texsx}
+{
+\begin{tikzpicture}
+  \useasboundingbox[fill=headline](0,0) rectangle(\the\paperwidth,0.4);
+\end{tikzpicture}
+}
+
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
 \setbeamertemplate{items}[square]
 \setbeamertemplate{sections/subsections in toc}[square]
+
+\setbeamercolor*{item}{fg=orange}
+\setbeamercolor*{background canvas}{bg=background}
 
 \mode<all>

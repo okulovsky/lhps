@@ -1,0 +1,150 @@
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{amssymb}
+\usepackage{environ}
+
+
+% UNIT TESTS 
+
+\newcommand{\AssertAreEqual}[3]{
+	\ifthenelse{\equal{#2}{#3}}
+{#1: SUCCESS\par}
+{#1: FAILURE, expected '#2', but was '#3'\par}
+}
+
+\newcommand{\AssertAreNotEqual}[3]{
+	\ifthenelse{\equal{#2}{#3}}
+	{#1: FAILURE, expected non '#2', but was '#3'\par}
+	{#1: SUCCESS\par}
+}
+
+
+
+% PROPERTIES
+
+\makeatletter
+\def\ece#1#2{\expandafter#1\csname#2\endcsname}%
+\def\setproperty#1#2#3{\ece\protected@edef{#1@p#2}{#3}}%
+\def\setpropertyglobal#1#2#3{\ece\protected@xdef{#1@p#2}{#3}}%
+\def\getproperty#1#2{%
+	\expandafter\ifx\csname#1@p#2\endcsname\relax
+	\else \csname#1@p#2\endcsname
+	\fi
+}
+\makeatother
+
+
+\newcommand{\TestSettingCommand}
+{
+	\setproperty{TestSettingsCommand}{Data}{Test}
+}
+
+\newcommand{\TestSettingCommandWithArgument}[1]
+{
+	\setproperty{TestSettingsCommandWithArgument}{Data}{#1}	
+}
+
+
+% IMAGES
+
+
+\newcommand{\ImageSource}{Images/}
+\newcommand{\ImageExtension}{jpg}
+\newcommand{\SetupImages}[2]{\renewcommand{\ImageSource}{#1}\renewcommand{\ImageExtension}{#2}}
+\newcommand{\ImagePath}[1]{\ImageSource#1.\ImageExtension}
+
+
+% GALLERY
+
+\newcounter{GalleryCounter}
+
+\newcommand{\startgallery}{\setcounter{GalleryCounter}{0}}
+
+\newcommand{\image}[2]
+{
+	\setproperty{GalleryImageFile}{\arabic{GalleryCounter}}{#1}
+	\setproperty{GalleryImageCaption}{\arabic{GalleryCounter}}{#2}
+	\stepcounter{GalleryCounter}
+}
+
+\newcounter{forLoopCounter}
+
+\newcommand{\makegallery}{
+	\begin{center}
+		\forloop{forLoopCounter}{0}{\value{forLoopCounter}<\value{GalleryCounter}}
+		{
+			\begin{tabular}{c}
+				\includegraphics[width=2cm]{\ImagePath{\getproperty{GalleryImageFile}{\arabic{forLoopCounter}}}}\\
+				\getproperty{GalleryImageCaption}{\arabic{forLoopCounter}}\\
+			\end{tabular}
+		}
+	\end{center}
+}
+
+\newenvironment{GalleryFrame}{\begin{frame}\startgallery}{\makegallery\end{frame}}
+
+% SIMPLE FRAMES 
+
+\newcommand{\PictureFrame}[3]{
+\begin{frame}\frametitle{#2}
+\begin{center}
+\includegraphics[width=10cm,height=6.5cm,keepaspectratio]{\ImagePath{#1}}
+
+#3
+\end{center}
+\end{frame}	
+}
+
+
+\newcommand{\EmptyPictureFrame}[1]{
+\begin{frame}
+\begin{center}
+\includegraphics[width=10cm,height=6.5cm,keepaspectratio]{\ImagePath{#1}}
+\end{center}
+\end{frame}	
+}
+
+\newcommand{\Citation}[2]{
+\begin{flushleft}
+#1 
+\end{flushleft}
+\begin{flushright}
+{\it #2}
+\end{flushright}
+}
+
+% PERSONS
+
+
+\NewEnviron{Person}[3]
+{
+\begin{frame}\frametitle{#2}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics[width=\linewidth,height=5cm,keepaspectratio]{\ImagePath{#1}}
+
+#2
+
+(#3)
+\end{center}
+\column{0.6\textwidth}
+
+\BODY 
+
+\end{columns}
+\end{frame}
+}
+
+% REASONS
+\newcommand{\ReasonWidth}{7cm}
+\newenvironment{Reason}{\begin{center}}{\end{center}}
+\newcommand{\concbase}[1]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} \hline $\therefore$ & #1 \end{tabular}\par}
+\newcommand{\frombase}[2]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} #1 & #2 \end{tabular}\par}
+\newcommand{\conc}[2][1-]{\only<#1>{\concbase{#2}}}
+\newcommand{\from}[2][1-]{\only<#1>{\frombase{}{#2}}}
+\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} #2: & --- &#3 \end{tabular}\par}}
+	
