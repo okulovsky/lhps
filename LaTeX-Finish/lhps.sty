@@ -20,12 +20,13 @@
 
 % SIMPLE FRAMES 
 
-\newcommand{\PictureFrame}[3]{
+\newcommand{\PictureFrameA}[4]{
 \begin{frame}\frametitle{#2}
 \begin{center}
 \begin{tikzpicture}
-\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=6cm]{\ImageSource{#1}}};
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=#4]{\ImageSource{#1}}};
 \end{tikzpicture}
+
 #3
 \end{center}
 \end{frame}	
@@ -33,7 +34,8 @@
 
 \newenvironment{GalleryFrame}{}{}
 
-\newcommand{\image}[2]{\PictureFrame{#1}{#2}{}}
+\newcommand{\image}[2]{\PictureFrameA{#1}{#2}{}{6cm}}
+\newcommand{\PictureFrame}[3]{\PictureFrameA{#1}{#2}{#3}{5.5cm}}
 
 
 \newcommand{\EmptyPictureFrame}[1]{
