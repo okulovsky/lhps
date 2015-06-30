@@ -7,6 +7,7 @@
 \usepackage{environ}
 \usepackage{xcolor}
 \usepackage{geometry}
+\usepackage{array}
 
 \usetheme{lhps}
 
@@ -58,7 +59,7 @@
 \node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[width=4cm]{\ImagePath{#1}}};
 \end{tikzpicture}
 \end{center}
-\column{6cm}
+\column{9cm}
 
 \BODY
 
@@ -67,13 +68,25 @@
 }
 
 % REASONS
+
+\newcommand{\mytherefore}{\tikz{
+\draw[background,fill=accent] (-3.5pt,0) circle(2.5pt); 
+\draw[background,fill=accent] (3.5pt,0) circle(2.5pt);
+\draw[background,fill=accent] (0,5.7pt) circle(2.5pt);
+}}
+
+\newcommand{\mybullet}{\tikz{
+\draw[background,fill=accent] (0,0) circle(3pt); 
+}}
+
+
 \newcommand{\ReasonWidth}{7cm}
 \newenvironment{Reason}{\begin{center}}{\end{center}}
-\newcommand{\concbase}[1]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} \hline $\therefore$ & #1 \end{tabular}\par}
-\newcommand{\frombase}[2]{\noindent\begin{tabular}{p{0.2cm} p{\ReasonWidth}} #1 & #2 \end{tabular}\par}
+\newcommand{\concbase}[1]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \hline \textcolor{accent}{\mytherefore} & #1 \end{tabular}\par}
+\newcommand{\frombase}[2]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \textcolor{accent}{#1} & #2 \end{tabular}\par}
 \newcommand{\conc}[2][1-]{\only<#1>{\concbase{#2}}}
-\newcommand{\from}[2][1-]{\only<#1>{\frombase{}{#2}}}
-\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} #2: & --- &#3 \end{tabular}\par}}
+\newcommand{\from}[2][1-]{\only<#1>{\frombase{\mybullet}{#2}}}
+\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} \textcolor{accent}{#2:} & --- &#3 \end{tabular}\par}}
 	
 %CITATIONS
 

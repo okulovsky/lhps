@@ -1,12 +1,23 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage{framed}
-\usepackage{lphs}
+\usepackage{lhps}
 
-\SetupImages{L2-Images/}{jpg}
+\renewcommand{\ImageSource}{L2-Images/}
+
 \begin{document}
 
-\begin{frame}
+\EmptyPictureFrame{IndiaGood}
 
+\EmptyPictureFrame{IndiaBad}
+
+\EmptyPictureFrame{Krakow}
+
+\EmptyPictureFrame{KrakowRain}
+
+\renewcommand{\ReasonWidth}{10cm}
+\fontsize{14}{16}\selectfont
+
+\begin{frame}[plain]
 \begin{Reason}
 \from[1-]{Мы должны основать колонию на Марсе!}
 \from[2-3]{Это слишком дорого! Если строить колонию, то не хватит денег на социальные программы}
@@ -64,7 +75,11 @@
 \end{Reason}
 \end{frame}
 
+
+\fontsize{10}{12}\selectfont
+
 \begin{Person}{hilbert}{Давид Гильберт}{1862--1943}
+
 Наиболее значимая для человечества задача... поймать муху на Луне. 
 
 Для того чтобы поймать муху на Луне, придётся долететь до Луны, создать там искусственную атмосферу.. и только тогда названная цель может быть достигнута. 
