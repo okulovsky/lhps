@@ -4,15 +4,20 @@
 \RequirePackage{tikz}
 
 
-\definecolor{headline}{HTML}{FF9627}
-\definecolor{headlinetext}{HTML}{FFFFFF}
-\definecolor{background}{HTML}{B0D0F0}
-\definecolor{accent}{HTML}{FF9627}
-\definecolor{normaltext}{HTML}{111111}
+\definecolor{background}{HTML}{FAD1B3}
+\definecolor{normaltext}{HTML}{101010}
+\definecolor{accent}{HTML}{FF6F00}
 
-\definecolor{chartbase}{HTML}{003300}
-\definecolor{chartlightaccent}{HTML}{FF9627}
-\definecolor{chartdarkaccent}{HTML}{0000EE}
+\definecolor{headline}{RGB}{249,163,84}
+\definecolor{headlinetext}{HTML}{FFCDA6}
+
+\definecolor{footline}{HTML}{FF6F00}
+
+
+
+\definecolor{chartbase}{HTML}{005952}
+\definecolor{chartlightaccent}{HTML}{FF6F00}
+\definecolor{chartdarkaccent}{HTML}{226C67}
 
 
 
@@ -30,7 +35,7 @@
 \defbeamertemplate*{footline}{texsx}
 {
 \begin{tikzpicture}
-  \useasboundingbox[fill=headline](0,0) rectangle(\the\paperwidth,0.4);
+  \useasboundingbox[fill=footline](0,0) rectangle(\the\paperwidth,0.4);
 \end{tikzpicture}
 }
 
