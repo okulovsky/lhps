@@ -9,9 +9,11 @@
 \definecolor{background}{HTML}{B0D0F0}
 \definecolor{accent}{HTML}{FF9627}
 
-% Frame title
+
+
 \defbeamertemplate*{frametitle}{texsx}[1][]
 {
+	\vskip-0.6cm
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
   \useasboundingbox[fill=headline](0,-0.05) rectangle(\the\paperwidth,1.2);
@@ -19,6 +21,31 @@
   \end{tikzpicture}
   \end{beamercolorbox}
 }
+\setbeamertemplate{headline}
+{
+\begin{tikzpicture}
+  \useasboundingbox[fill=red](0,0) rectangle(\the\paperwidth,0.4);
+\end{tikzpicture}
+}
+
+%\defbeamertemplate*{frametitle}{texsx}[1][]
+%{
+%\vskip1cm%
+%  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+%  \begin{tikzpicture}
+%  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+%  \fill[orange] (0,0) rectangle(2.95,1.2);
+%  \fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
+%   \ifx\insertframesubtitle\@empty%
+%      {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
+%      \else%
+%      {\node[anchor= west, white,font=\large] at (3.2,0.81){\insertframetitle};%
+%       \node[anchor= west, white,font=\small] at (3.2,0.41){\insertframesubtitle};}%
+%      \fi
+%  \end{tikzpicture}
+%  \end{beamercolorbox}
+%}
+
 
 \defbeamertemplate*{footline}{texsx}
 {

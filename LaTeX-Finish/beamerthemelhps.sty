@@ -27,12 +27,20 @@
 % Frame title
 \defbeamertemplate*{frametitle}{texsx}[1][]
 {
+	\vskip-0.3cm
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
   \useasboundingbox[fill=headline](0,-0.05) rectangle(\the\paperwidth,1.2);
   \node[headlinetext,anchor=east] at (\the\paperwidth,0.6) {\bf \insertframetitle};
   \end{tikzpicture}
   \end{beamercolorbox}
+}
+
+\setbeamertemplate{headline}
+{
+\begin{tikzpicture}
+  \useasboundingbox[fill=headline](0,0) rectangle(\the\paperwidth,0.4);
+\end{tikzpicture}
 }
 
 \defbeamertemplate*{footline}{texsx}
