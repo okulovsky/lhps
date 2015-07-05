@@ -39,7 +39,7 @@
 
 \begin{frame}\frametitle{Правила вывода}
 \begin{center}
-\begin{minipage}{0.5\textwidth}
+
 \uncover<1->{\begin{Reason}
 	\from{Если идет дождь, земля мокрая}
 	\from{Сейчас идет дождь}
@@ -53,25 +53,44 @@
 	\conc{Дождь не идет}
 \end{Reason}
 }
-	
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}	
 \begin{tikzpicture}
-\uncover<3->{
+\uncover<1->{
 \node[align=left] (n)  at (0,0) {
 \from{Если идет дождь, земля мокрая}\\
 \from{Дождь не идет}\\
 \conc{Земля не мокрая}
 };
 }
-\uncover<4->{
-\draw[color=chartlightaccent, ultra thick] (n.north west) -- (n.south east);
-\draw[color=chartlightaccent, ultra thick] (n.north east) -- (n.south west);
+\uncover<2->{
+\draw[color=accent, ultra thick] (n.north west) -- (n.south east);
+\draw[color=accent, ultra thick] (n.north east) -- (n.south west);
+};
+\end{tikzpicture}
 
+$$
+\ 
+$$
+
+\begin{tikzpicture}
+\uncover<3->{
+\node[align=left] (n)  at (0,0) {
+\from{Если идет дождь, земля мокрая}\\
+\from{Земля мокрая}\\
+\conc{Идет дождь}
+};
+}
+\uncover<4->{
+\draw[color=accent, ultra thick] (n.north west) -- (n.south east);
+\draw[color=accent, ultra thick] (n.north east) -- (n.south west);
 };
 
 \end{tikzpicture}
 
-
-\end{minipage}
 \end{center}
 \end{frame}
 

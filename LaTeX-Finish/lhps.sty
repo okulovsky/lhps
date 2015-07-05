@@ -21,11 +21,11 @@
 
 % SIMPLE FRAMES 
 
-\newcommand{\PictureFrameA}[4]{
+\newcommand{\PictureFrameA}[5]{
 \begin{frame}\frametitle{#2}
 \begin{center}
 \begin{tikzpicture}
-\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=#4]{\ImageSource{#1}}};
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[height=#4,width=#5,keepaspectratio]{\ImageSource{#1}}};
 \end{tikzpicture}
 
 #3
@@ -35,8 +35,18 @@
 
 \newenvironment{GalleryFrame}{}{}
 
-\newcommand{\image}[2]{\PictureFrameA{#1}{#2}{}{6cm}}
-\newcommand{\PictureFrame}[3]{\PictureFrameA{#1}{#2}{#3}{5.5cm}}
+\newcommand{\image}[2]{\PictureFrameA{#1}{#2}{}{6cm}{12cm}}
+\newcommand{\PictureFrame}[3]{\PictureFrameA{#1}{#2}{#3}{5.5cm}{12cm}}
+
+\newenvironment{bframe}
+{
+\begin{frame}
+\renewcommand{\ReasonWidth}{10cm}
+\fontsize{14}{16}\selectfont
+}
+{
+\end{frame}
+}
 
 
 \newcommand{\EmptyPictureFrame}[1]{
@@ -78,6 +88,7 @@
 \newcommand{\mybullet}{\tikz{
 \draw[background,fill=accent] (0,0) circle(3pt); 
 }}
+
 
 
 \newcommand{\ReasonWidth}{7cm}
