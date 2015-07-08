@@ -8,6 +8,7 @@
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{array}
+\renewcommand{\sfdefault}{fds}\normalfont
 
 \usetheme{lhps}
 
@@ -93,11 +94,11 @@
 
 \newcommand{\ReasonWidth}{7cm}
 \newenvironment{Reason}{\begin{center}}{\end{center}}
-\newcommand{\concbase}[1]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \hline\\[-0.3cm] \textcolor{accent}{\mytherefore} & #1 \end{tabular}\par}
-\newcommand{\frombase}[2]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \textcolor{accent}{#1} & #2 \end{tabular}\par}
+\newcommand{\concbase}[1]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \hline\\[-0.5cm] \textcolor{accent}{\mytherefore} & #1 \\[0.1cm] \end{tabular}\par}
+\newcommand{\frombase}[2]{\noindent\begin{tabular}{>{\centering\arraybackslash}m{0.5cm}  p{\ReasonWidth}} \textcolor{accent}{#1} & #2 \\[0.1cm] \end{tabular}\par}
 \newcommand{\conc}[2][1-]{\only<#1>{\concbase{#2}}}
 \newcommand{\from}[2][1-]{\only<#1>{\frombase{\mybullet}{#2}}}
-\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} \textcolor{accent}{#2:} & --- &#3 \end{tabular}\par}}
+\newcommand{\say}[3][1-]{\only<#1>{\noindent\begin{tabular}{p{1.5cm} r p{\ReasonWidth}} \textcolor{accent}{#2:} & --- &#3 \\[0.1cm]\end{tabular}\par}}
 	
 %CITATIONS
 
