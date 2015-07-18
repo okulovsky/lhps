@@ -8,10 +8,88 @@
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{array}
+\usepackage{changepage}
 %\renewcommand{\sfdefault}{fds}\normalfont
 
 \usetheme{lhps}
 
+
+
+\makeatletter
+\def\ece#1#2{\expandafter#1\csname#2\endcsname}%
+\def\setproperty#1#2#3{\ece\protected@edef{#1@p#2}{#3}}%
+\def\setpropertyglobal#1#2#3{\ece\protected@xdef{#1@p#2}{#3}}%
+\def\getproperty#1#2{%
+	\expandafter\ifx\csname#1@p#2\endcsname\relax
+	\else \csname#1@p#2\endcsname
+	\fi
+}
+\makeatother
+
+
+% timeline
+
+
+\newcommand{\tlsideitem}[3]
+{
+\only<+->
+{
+\coordinate (year) at ($(0.25,0)+($7/(\getproperty{tl}{max}-\getproperty{tl}{min})*($(0,#1-\getproperty{tl}{min})$)$)$);
+\draw[draw=chartlightaccent,fill=chartlightaccent] (year) circle (0.1cm);
+\draw[chartlightaccent, ultra thick] (year) -- ($(year)+(0.5,#2)$) node[right] {\footnotesize #1 \textcolor{chartbase}{#3}};
+}
+}
+
+\newcommand{\tlfitem}[5]
+{
+\tlsideitem{#1}{#2}{#3}
+\only<.>
+{
+\node[draw=accent,line width=1mm,inner sep=1, align=center] (n1) at (10,3) {
+\includegraphics[width=10cm,height=6.5cm,keepaspectratio]{\ImageSource{#4}}
+};
+\node[align=center] at ($(n1.south)+(0,0.5)$) {#5};
+}
+}
+
+\newcommand{\tlitem}[4]{\tlfitem{#1}{#2}{#3}{#4}{#3 (#1)}}
+
+\newcommand{\tlbio}[7]{\tlfitem{#1}{#2}{#3}{#4}{#5 (#6) \\ #7}}
+
+
+
+\newcommand{\opentimeline}[2]
+{
+\draw[chartdarkaccent, ultra thick] (0.25,0) -- (0.25,7);
+%\draw[draw=chartdarkaccent] (0,0) rectangle (0.5,7);
+
+\setproperty{tl}{max}{#2}
+\setproperty{tl}{min}{#1}
+
+\node at (0.25,-0.3) {#1};
+\node at (0.25,7.3) {#2};
+}
+
+
+
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\NewEnviron{Timeline}[2]
+{
+\begin{frame}
+\begin{adjustwidth}{-0.9cm}{-0.9cm}
+\begin{tikzpicture}[x=1cm,y=-1cm]
+\opentimeline{#1}{#2}
+
+\BODY
+
+\end{tikzpicture}
+\end{adjustwidth}
+\end{frame}
+}
+
+%images 
 
 \newcommand{\ImageSource}{Images/}
 \newcommand{\ImageExtension}{jpg}
@@ -21,7 +99,6 @@
 % GALLERY
 
 % SIMPLE FRAMES 
-
 \newcommand{\PictureFrameA}[5]{
 \begin{frame}\frametitle{#2}
 \begin{center}
