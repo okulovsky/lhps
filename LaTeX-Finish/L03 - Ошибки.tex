@@ -5,6 +5,16 @@
 \renewcommand{\ImageSource}{L2-Images/}
 \begin{document}
 
+\begin{bframe}
+\begin{Reason}
+\say[+-]{Боб}{У меня для вас уникальное предложение услуг связи! Мы гарантируем вам экономию до 50\%!}
+\say[+-]{Алиса}{А что у вас с качеством?}
+\say[+-]{Боб}{Наша компания получила государственную премию <<За качество>>!}
+\say[+-]{Алиса}{Но если что-то не будет работать...}
+\say[+-]{Боб}{Я лично буду отвечать за любые неполадки!}
+\end{Reason}
+\end{bframe}
+
 \begin{Person}{Witgenstein}{Людвиг Витгенштейн}{1889--1951}
 \Citation{
 Значение слова есть его употребление в рамках языковой игры, а правила такой игры есть практика
@@ -13,9 +23,22 @@
 }
 \end{Person}
 
-\renewcommand{\ReasonWidth}{9cm}
+\begin{bframe}
+\Citation
+{
+Никогда не нужно объяснять злым умыслом то, что хорошо объясняется человеческой глупостью.
+}
+{Роберт Дж. Хэнлон}
+\end{bframe}
+
+\begin{bframe}
+Вы давно и серьезно следите за рынком ценных бумаг, и до недавнего времени у вас не было средств для вложений. Но пару дней назад вы получили крупную сумму в качестве наследства от \only<1>{дедушки}\only<2>{дедушки, {\bf большая часть которого состоит из вложений в компанию с умеренным риском для вложений}, и теперь вы}\only<1>{ и вы} формируете свой портфель. У вас есть выбор для вложений: компания с умеренным риском для вложений, компания с высоким риском для вложений, казначейские векселя и муниципальные облигации.
+\end{bframe}
+
+\EmptyPictureFrame{Ariely}
 
 \begin{frame}\frametitle{Пресуппозиции}
+\renewcommand{\ReasonWidth}{11cm}
 \begin{Reason}
 	\from[1-]{Свет не горит}
 	\from[2-]{Свет не горит, когда нет электричества или перегорела лампочка}
@@ -29,7 +52,17 @@
 \end{Reason}
 \end{frame}
 
-\begin{frame}\frametitle{Модальности}
+\begin{bframe}\frametitle{Red Herring}
+
+\begin{Reason}
+\from[1-]{Образовательные бюджеты снизились}
+\from[2]{Когда снижаются образовательные бюджеты, нужно предъявлять более серьезные требования к студентам}
+\conc[1-]{Нужно предъявлять более серьезные требования к студентам}
+\end{Reason}
+
+\end{bframe}
+
+\begin{bframe}\frametitle{Модальности}
 \begin{Reason}
 \from[1-3]{Ежедневное употребление черники продлевает жизнь}
 \from[4]{Ежедневные употребление дождевых червей продлевает жизнь}
@@ -37,9 +70,9 @@
 \conc[2-3]{Нужно ежедневно употреблять чернику}
 \conc[4]{Нужно ежедневно употреблять дождевых червей}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Апелляции к авторитету}
+\begin{bframe}\frametitle{Апелляции к авторитету}
 \begin{Reason}
 	\from[1-3]{Потребление сладкого неизбежно приводит к кариесу}
 	\from[4-5]{Британские ученые считают, что потребление сладкого неизбежно приводит к кариесу}
@@ -50,64 +83,69 @@
 	\conc[6]{X}
 		
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Апелляции к авторитету}
+\begin{bframe}\frametitle{Апелляции к авторитету}
 	\begin{Reason}
 		\from{X утверждает Y}
 		\from{X обладает качеством Z}
 		\conc{Y -- истинно}
 	\end{Reason}
-\end{frame}
+\end{bframe}
 
 
 
-\begin{frame}\frametitle{Ad hominem}
+\begin{bframe}\frametitle{Ad hominem}
 
 \Citation{<<Какие взгляды на архитектуру может высказать мужчина без прописки? Пойманный с поличным, он сознается и признает себя побеждённым. И вообще, разве нас может интересовать мнение человека лысого, с таким носом? Пусть сначала исправит нос, отрастит волосы, а потом и выскажется>>}{Михаил Жванецкий}
-\end{frame}
+\end{bframe}
 
-\begin{frame}
+\begin{bframe}
 \begin{Reason}
 \from{X есть Y}
 \from{X обладает качеством Z}
 \conc{Y -- ложно}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Ad hominem}
+\begin{bframe}\frametitle{Ad hominem}
 	\begin{Reason}
 		\from[1-]{X утверждает, что соседи облучают его через розетку}
 		\from[2-]{X -- пациент психиатрической больницы с бредовыми идеями}
 		\conc[3-]{Соседи не облучают X через розетку}
 	\end{Reason}
-\end{frame}
+\end{bframe}
 
 
 
 \EmptyPictureFrame{cancer}
 
-\begin{frame}\frametitle{Оценочные суждения}
+\begin{bframe}\frametitle{Оценочные суждения}
 \begin{Reason}
 	\from[1-]{Есть раков -- отвратительно}
 	\from[2]{Не следует делать отвратительных вещей}
 	\conc[1-]{Не следует есть раков}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Защитные термины}
+\begin{bframe}\frametitle{Защитные термины}
 \begin{Reason}
 	\from[1]{Все тела падают на землю}
 	\from[2]{Почти все тела падают на землю}
 	\from[1-]{Камень -- это тело}
 	\conc[1-]{Камень упадет на землю}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Ambiguity}
-\end{frame}
+\begin{bframe}\frametitle{Неоднозначные термины}
+\begin{Reason}
+\from[1-]{Мы должны бороться с наркотиками\uncover<2>{$^1$}}
+\from[1-]{Кетамин является наркотиком\uncover<2>{$^2$}}
+\conc[1-]{Мы должны бороться с кетамином}
+\end{Reason}
+\end{bframe}
 
-\begin{frame}\frametitle{Циклические рассуждения}
+\begin{bframe}\frametitle{Циклические рассуждения}
 \Citation{
 \say[+-]{Алиса}{Откуда я знаю, что вам можно доверять?}
 
@@ -118,7 +156,7 @@
 \say[+-]{Джон}{Уверяю вас, он честнейший человек!}
 	
 }{}
-\end{frame}
+\end{bframe}
 
 \begin{frame}\frametitle{Циклические рассуждения}
 \begin{Reason}
@@ -132,7 +170,7 @@
 \end{Reason}
 \end{frame}
 
-\begin{frame}\frametitle{Парадокс кучи}
+\begin{bframe}\frametitle{Парадокс кучи}
 \begin{Reason}
 	\from[1-]{У Джона нет бороды}
 	\from[2-]{Если у человека нет бороды, то за один день без бритья бороды не появится}
@@ -142,9 +180,9 @@
 	\from[6-]{...}
 	\conc[7-]{У Джона никогда не будет бороды}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
-\begin{frame}\frametitle{Парадокс кучи}
+\begin{bframe}\frametitle{Парадокс кучи}
 \begin{Reason}
 	\from[1]{Не существует самого большого четного числа}	\from[2-]{Число $2$ четно}
 	\from[3-]{Если $X$ четно, то $X$+2 больше $X$ и четно}
@@ -155,6 +193,6 @@
 	\conc[8-]{Для любого четного числа $X$ есть четное число, большее его и четное}
 	\conc[8-]{Не существует самого большого четного числа}
 \end{Reason}
-\end{frame}
+\end{bframe}
 
 \end{document}
