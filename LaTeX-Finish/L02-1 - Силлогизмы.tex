@@ -223,47 +223,6 @@
 	\end{columns}
 \end{frame}
 
-\begin{bframe}
-\begin{Reason}
-\from{Все хакеры разбираются в компьютерах}
-\from{Все программисты разбираются в компьютерах}
-\conc{Все программисты -- хакеры}
-\end{Reason}
-\end{bframe}
-
-\begin{frame}
-	\begin{columns}
-		\column{0.5\textwidth}
-		\begin{center}
-			\begin{Reason}
-				\from{Все волки -- хищники}
-				\from{Все львы -- хищники}
-				\conc{Все волки -- львы}
-			\end{Reason}
-		\end{center}
-		\column{0.5\textwidth}
-		\begin{center}
-			\begin{tikzpicture}[x=1cm,y=-1cm]
-			
-			\uncover<3->{\begin{scope}[even odd rule]
-				\clip \thirdcircle (-2.5,-1.5) rectangle (2.5,3.25);
-				\fill[chartdarkaccent] \firstcircle;
-				\end{scope}}
-			
-			\uncover<4->{\begin{scope}[even odd rule]
-				\clip \thirdcircle (-2.5,-1.5) rectangle (2.5,3.25);
-				\fill[chartdarkaccent] \secondcircle;
-				\end{scope}}
-			
-			\uncover<2->{\draw[my] \firstcircle node {В};
-				\draw[my] \secondcircle node {Л};
-				\draw[my] \thirdcircle node {Х};
-			}
-			\end{tikzpicture}
-		\end{center}
-	\end{columns}
-\end{frame}
-
 \section{Валидность суждений}
 
 
@@ -286,12 +245,13 @@
 
 \begin{bframe}
 
-\uncover<+->{Рассуждение \textcolor{accent}{\bf обоснованно}, если все его посылки истинны}
+\uncover<+->{Рассуждение \textcolor{accent}{\bf обоснованно}, если оно валидно, и все его посылки истинны}
 
 \vskip1cm
 
 \uncover<+->{Рассуждение \textcolor{accent}{\bf валидно}, если невозможно представить себе ситуацию, когда все его посылки истинны, а вывод -- ложен
 }
+
 \end{bframe}
 
 \begin{bframe}
@@ -336,6 +296,15 @@
 \from{Все страны Южной Америки -- республики}
 \from{Великобритания -- страна Европы}
 \conc{Великобритания -- республика}
+\end{Reason}
+\end{bframe}
+
+
+\begin{bframe}
+\begin{Reason}
+\from{Все страны Южной Америки -- республики}
+\from{Китай -- страна Южной Америки}
+\conc{Китай -- республика}
 \end{Reason}
 \end{bframe}
 
