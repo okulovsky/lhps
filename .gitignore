@@ -9,3 +9,4 @@ bin
 obj
 *.gz(busy)
 *.suo
+VideoData/YoutubeApiCredentials/

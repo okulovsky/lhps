@@ -1,0 +1,3 @@
+PublishingSettings Tuto file Version 1
+
+{"CourseAbbreviation":"LHPS","DescriptionPS":"","Keywords":"","LatexCompiledSlidesSubdirectory":"LatexCompiledSlides","LatexSourceSubdirectory":"Latex","ThumbnailImagePath":null,"TopicLevels":[],"UlearnCourseDirectory":""}
