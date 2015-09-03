@@ -1,0 +1,34 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{framed}
+\usepackage{lhps}
+
+\renewcommand{\ImageSource}{L3-Images/}
+\begin{document}
+
+
+\begin{frame}{Современный научный метод}
+\begin{center}
+\begin{tikzpicture}[x=4cm,y=-2cm]
+
+\uncover<1->{\node (n1) at (0,0) {Реальность};}
+\uncover<3->{\node (n2) at (1,0) {Данные};}
+\uncover<2->{\draw[->] (n1) -- node[above]{\it Наблюдения} (n2);}
+\uncover<5->{\node (n3) at (2,0) { Гипотеза};}
+\uncover<4->{
+\draw[->] (n2) -- node[above]{\begin{tabular}{c}\it Индукция\\\it Абдукция\end{tabular}} (n3);
+}
+
+
+\uncover<7->{\node (n4) at (1.5,1) {Граничные условия};}
+\uncover<6->{\draw[->] (n3) -- node[right]{\it $\ \ $Дедукция} (n4);}
+\uncover<9->{\draw[->] (n4) -- node[left]{\it Эксперимент$\ $} (n2);}
+\uncover<11->{\node (n5) at (3,0) { Теория};}
+\uncover<10->{\draw[->] (n3) -- node[above]{\it Проверки} (n5);}
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+
+\end{document}
