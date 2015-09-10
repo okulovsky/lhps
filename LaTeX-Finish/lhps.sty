@@ -155,6 +155,26 @@
 \end{frame}
 }
 
+
+\NewEnviron{ImageAndText}[2]
+{
+\begin{frame}\frametitle{#2}
+\begin{columns}
+\column{4.2cm}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=accent,line width=1mm,inner sep=1] at(0,0) {\includegraphics[width=4cm]{\ImagePath{#1}}};
+\end{tikzpicture}
+\end{center}
+\column{9cm}
+
+\BODY
+
+\end{columns}
+\end{frame}
+}
+
+
 % REASONS
 
 \newcommand{\mytherefore}{\tikz{

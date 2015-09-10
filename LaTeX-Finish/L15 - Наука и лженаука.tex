@@ -1,0 +1,68 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{lhps}
+\renewcommand{\ImageSource}{L4-Images/}
+
+\begin{document}
+
+
+\begin{frame}{Демаркация}
+\begin{center}
+\begin{tikzpicture}[y=-1.15cm, x=7cm]
+\uncover<+->{
+\node[draw=black,align=center] (n0) at (0,-0.2) {Консервативное, о реальности,\\ соответствует этике и методу?};
+\node (m0) at (1,-0.2) {Нормальная наука};
+\draw[->](n0) -- node[above]{\it да} (m0);
+}
+
+\uncover<+->{
+\node[draw=black] (n1) at (0,1) {О реальности?};
+\draw[->] (n0) -- node[left]{\it нет} (n1);
+}
+\uncover<+->{
+\node (m1) at (1,1) {Не наука};
+\draw[->](n1) -- node[above]{\it нет} (m1);
+}
+
+\uncover<+->{
+\node[draw=black] (n2) at (0,2) {О чужой работе?};
+\draw[->] (n1) -- node[left]{\it да}  (n2);
+}
+
+\uncover<+->{
+\node[align=center] (m2) at (1,2) {Научпоп};
+\draw[->](n2) -- node[above]{\it да} (m2);
+}
+
+
+\uncover<+->{
+\node[draw=black] (n3) at (0,3) {Не консервативное, но остальное ОК?};
+\draw[->] (n2) -- node[left]{\it нет}  (n3);
+}
+
+\uncover<+->{
+\node (m3) at (1,3) {Пограничная наука};
+\draw[->](n3) -- node[above]{\it да} (m3);
+}
+
+\uncover<+->{
+\node[draw=black] (n4) at (0,4) {Противоречит науке?};
+\draw[->] (n3) -- node[left]{\it нет}  (n4);
+}
+\uncover<+->{
+\node (m4) at (1,4) {Паранаука};
+\draw[->](n4) -- node[above]{\it нет} (m4);
+}
+
+\uncover<+->{
+\node (n5) at (1,5) {Лженаука};
+\draw (n4) -- (0,5);
+\draw[->] (0,5) -- node[above]{\it да} (n5);
+}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+
+\end{document}

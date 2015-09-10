@@ -1,8 +1,9 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage{framed}
 \usepackage{lhps}
+\usepackage{pifont}
 
-\renewcommand{\ImageSource}{L3-Images/}
+\renewcommand{\ImageSource}{L4-Images/}
 \begin{document}
 
 
@@ -29,6 +30,31 @@
 \end{center}
 \end{frame}
 
+\begin{ImageAndText}{HookesLaw}{Закон Гука}
+$$
+F=kx
+$$
+\begin{itemize}
+\item $F$ -- сила, приложенная к пружине
+\item $x$ -- приращение длины пружины
+\item $k$ -- коэффициент пропорциональности
+\end{itemize}
+\end{ImageAndText}
 
+\EmptyPictureFrame{PascalExperiment}
 
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}[x=4cm,y=-1cm]
+\node (n0) at (2,0) {Контроллер};
+\node (n1) at (1,0) {Middleware};
+\draw[<->] (n0)--(n1);
+\node (n2) at (0,0) {0:0}; 
+\draw[->] (n1)--(n2);
+\node (n3) at (0,1) {\ding{55}};
+\draw (n0) -- (2,1);
+\draw[->] (2,1)--(n3);
+\end{tikzpicture}
+\end{center}
+\end{frame}
 \end{document}
